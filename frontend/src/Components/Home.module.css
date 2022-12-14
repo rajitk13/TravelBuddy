@@ -1,0 +1,23 @@
+.spacing {
+  padding-top: 2rem;
+}
+
+.left {
+  text-align: end;
+  padding-right: 30%;
+  color: grey;
+}
+
+h1 {
+  color: black;
+}
+
+.subtitle {
+  color: darkolivegreen;
+
+  text-align: center;
+}
+
+.explore {
+  width: 80%;
+}
