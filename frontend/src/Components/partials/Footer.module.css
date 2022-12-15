@@ -1,0 +1,9 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    background-color: olive;
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+}

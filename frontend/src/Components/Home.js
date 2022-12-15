@@ -2,14 +2,17 @@ import React from "react";
 
 import classes from "./Home.module.css";
 import Button from "react-bootstrap/Button";
+import HomeTable from "./HomeTable";
+import HomeCard from "./HomeCard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const Home = () => {
   return (
     <>
       <p className={classes.spacing}>
-        <h1 style={{ textAlign: "end", paddingRight: "30%" }}>
-          Looking for a Ride Partner?
-        </h1>
+        <h1 className={classes.padleft}>Looking for a Ride Partner?</h1>
         <h2 className={classes.left}>MUJ to Railway Station?</h2>
         <h2 className={classes.left}>MUJ to Jaipur City ?</h2>
         <h2 className={classes.left}>MUJ to Airport?</h2>
@@ -24,7 +27,36 @@ const Home = () => {
           Explore
         </Button>
       </center>
-      <hr/>
+      <hr />
+      <HomeTable css={classes} />
+      <hr />
+      <h1 className={classes.padleft}>Optimal Travel Pricing</h1>
+      <div className={classes.padleft} style={{marginTop:"1rem"}}>
+        <Container fluid>
+          <Row>
+            <Col>
+              <HomeCard />
+            </Col>
+            <Col>
+              <HomeCard />
+            </Col>
+            <Col>
+              <HomeCard />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <HomeCard />
+            </Col>
+            <Col>
+              <HomeCard />
+            </Col>
+            <Col>
+              <HomeCard />
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </>
   );
 };

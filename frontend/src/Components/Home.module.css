@@ -3,21 +3,26 @@
 }
 
 .left {
-  text-align: end;
-  padding-right: 30%;
+  text-align: start;
+  padding-left: 7%;
   color: grey;
-}
-
-h1 {
-  color: black;
 }
 
 .subtitle {
   color: darkolivegreen;
 
-  text-align: center;
+  padding-left: 7%;
+  padding-right: 5%;
 }
 
 .explore {
   width: 80%;
+}
+
+.tablestyle {
+  margin: 3% 7%;
+}
+
+.padleft {
+  padding-left: 7%;
 }

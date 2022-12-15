@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
+import Footer from "./Components/partials/Footer";
 import Header from "./Components/partials/Header";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 };
