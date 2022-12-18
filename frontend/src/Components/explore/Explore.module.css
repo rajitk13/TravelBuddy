@@ -1,11 +1,19 @@
 .padding {
-  padding: 3% 13%;
+  padding: 3% 5%;
 }
 
 .explorecard {
   margin-top: 2rem;
+  font-size: 1.5rem;
 }
 
 .explorebtn {
   margin-top: 0.5rem;
+}
+
+.tofrom{
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+
 }

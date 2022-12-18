@@ -7,15 +7,14 @@ const ExploreCard = (props) => {
   return (
     <Card
       border="dark"
-      style={{ width: "100%" }}
+      style={{ width: "30rem" }}
       className={classes.explorecard}
     >
-      <Card.Header>
-        <b>MUJ to Railway Station</b>
-      </Card.Header>
+      <h1 className={classes.tofrom}>MUJ ➡ Railway Station</h1>
+
       <Card.Body>
-        <Card.Title>Rajit Kuthiala</Card.Title>
-        <Card.Text>
+        <Card.Title><b>Rajit Kuthiala</b></Card.Title>
+        <Card.Text className='text-muted'>
           <span>Date: {props.date} </span> <span>Time: {props.time}</span>
           <p>Current Occupants: 1/4</p>
           <p>
