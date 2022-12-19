@@ -53,7 +53,11 @@ function Signup() {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" ref={passwordRef} />
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          ref={passwordRef}
+        />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Confirm Password</Form.Label>
@@ -69,6 +73,11 @@ function Signup() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
+      <p>
+        <Form.Text className="text-muted">
+          Already a user ? <a href="/login">Login here</a>
+        </Form.Text>
+      </p>
     </Form>
   );
 }
