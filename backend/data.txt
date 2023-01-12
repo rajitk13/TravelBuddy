@@ -1,0 +1,45 @@
+
+#Users
+[
+  {
+    "name": "Milind",
+    "identification": "209302149",
+    "phone": "6377007132",
+    "email": "milind@gmail.com",
+    "password": "IloveCN"
+  },
+  {
+    "name": "Rajit",
+    "identification": "209302143",
+    "phone": "9895748393",
+    "email": "rajit@gmail.com",
+    "password": "rajit@456"
+  },
+  {
+    "name": "Saketh",
+    "identification": "209302556",
+    "phone": "6383894004",
+    "email": "saketh@gmail.com",
+    "password": "saketh@456"
+  },
+  {
+    "name": "Prakher",
+    "identification": "209302446",
+    "phone": "8847482836",
+    "email": "prakher@gmail.com",
+    "password": "prakher@456"
+  }
+]
+//Request
+[
+  {
+    "from":"MUJ",
+    "to":"Jaipur Junction",
+    "when":"2023-01-10T12:00",
+    "requiredStrength":"2"
+  },
+  {
+    from:"Jaipur Junction",
+    to:"
+  }
+]

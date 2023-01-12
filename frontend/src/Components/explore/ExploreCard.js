@@ -1,16 +1,9 @@
-<<<<<<< Updated upstream
-import React from "react";
-import Card from "react-bootstrap/Card";
-=======
 import React, { useContext } from "react";
-// import Card from "react-bootstrap/Card";
->>>>>>> Stashed changes
 import Button from "react-bootstrap/esm/Button";
 import classes from "./Explore.module.css";
+import AuthContext from "../../store/auth-context";
 
 const ExploreCard = (props) => {
-<<<<<<< Updated upstream
-=======
   const authCtx = useContext(AuthContext);
   async function interestedHandler(e) {
     e.preventDefault();
@@ -37,41 +30,7 @@ const ExploreCard = (props) => {
     }
   }
 
->>>>>>> Stashed changes
   return (
-    // <Card
-    //   border="dark"
-    //   style={{ width: "30rem" }}
-    //   className={classes.explorecard}
-    // >
-    //   <h1 className={classes.tofrom}>MUJ ➡ Railway Station</h1>
-
-<<<<<<< Updated upstream
-      <Card.Body>
-        <Card.Title><b>Rajit Kuthiala</b></Card.Title>
-        <Card.Text className='text-muted'>
-          <span>Date: {props.date} </span> <span>Time: {props.time}</span>
-          <p>Current Occupants: 1/4</p>
-          <p>
-            <Button variant="dark" className={classes.explorebtn}>
-              Interested
-            </Button>
-          </p>
-        </Card.Text>
-      </Card.Body>
-    </Card>
-=======
-    //   <Card.Body>
-    //     <Card.Title>
-    //       <b>{props.name}</b>
-    //     </Card.Title>
-    //     <Card.Text className="text-muted">
-    //       <span>Date: {props.date} </span> <span>Time: {props.time}</span>
-    //       <p>Current Occupants: 1/4</p>
-    //       <Button variant="dark" className={classes.explorebtn} onClick={interestedHandler}> Interested </Button>
-    //     </Card.Text>
-    //   </Card.Body>
-    // </Card>
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">
@@ -108,7 +67,6 @@ const ExploreCard = (props) => {
         </p>
       </div>
     </div>
->>>>>>> Stashed changes
   );
 };
 

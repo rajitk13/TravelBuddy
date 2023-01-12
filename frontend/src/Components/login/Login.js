@@ -1,20 +1,11 @@
-<<<<<<< Updated upstream
-=======
 import { useContext, useRef, useState } from "react";
->>>>>>> Stashed changes
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import classes from "./Login.module.css";
+import AuthContext from "../../store/auth-context";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-<<<<<<< Updated upstream
-  return (
-    <Form className={classes.padding}>
-      <h1>Login</h1>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Registration Number</Form.Label>
-        <Form.Control type="integer" placeholder="Enter registation number" />
-=======
   const regRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState();
@@ -57,7 +48,6 @@ function Login() {
       <Form.Group className="mb-3">
         <Form.Label>Registration Number</Form.Label>
         <Form.Control ref={regRef} type="integer" />
->>>>>>> Stashed changes
         <Form.Text className="text-muted">
           Enter your MUJ Registration Number
         </Form.Text>
@@ -65,11 +55,7 @@ function Login() {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-<<<<<<< Updated upstream
-        <Form.Control type="password" placeholder="Password" />
-=======
         <Form.Control ref={passwordRef} type="password" />
->>>>>>> Stashed changes
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />
@@ -77,16 +63,11 @@ function Login() {
       <Button variant="primary" type="submit">
         Submit
       </Button>
-<<<<<<< Updated upstream
-     
-     
-=======
       <p>
         <Form.Text className="text-muted">
           Not a user ? <a href="/signup">Signup here</a>
         </Form.Text>
       </p>
->>>>>>> Stashed changes
     </Form>
   );
 }
