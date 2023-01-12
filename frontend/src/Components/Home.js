@@ -7,12 +7,20 @@ import HomeCard from "./HomeCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Modal from "../modal/ModalComponent";
+import { useState } from "react";
 
 const Home = () => {
+  const [show, setShow] = useState(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
+      <Modal handleClose={handleClose} show={show} />
       <p className={classes.spacing}>
-        <h1 className={classes.padleft}>Looking for a Ride Partner?</h1>
+        <h1 className={classes.padleft} onClick={handleShow}>
+          Looking for a Ride Partner?
+        </h1>
         <h2 className={classes.left}>MUJ to Railway Station?</h2>
         <h2 className={classes.left}>MUJ to Jaipur City ?</h2>
         <h2 className={classes.left}>MUJ to Airport?</h2>
@@ -31,7 +39,7 @@ const Home = () => {
       <HomeTable css={classes} />
       <hr />
       <h1 className={classes.padleft}>Optimal Travel Pricing</h1>
-      <div className={classes.padleft} style={{marginTop:"1rem"}}>
+      <div className={classes.padleft} style={{ marginTop: "1rem" }}>
         <Container fluid>
           <Row>
             <Col>

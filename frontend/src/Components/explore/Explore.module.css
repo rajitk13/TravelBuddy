@@ -12,9 +12,10 @@
   margin-top: 0.5rem;
 }
 
-.tofrom{
-  text-align: center;
-  font-size: 1.5rem;
-  margin-top: 1rem;
+.title {
+  margin-bottom: 1rem;
+}
 
+.grey {
+  color: grey;
 }

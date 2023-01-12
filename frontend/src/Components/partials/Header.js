@@ -26,7 +26,7 @@ function Header() {
             </NavDropdown> */}
           </Nav>
           <Nav>
-            <Nav.Link href="/signup">Signup</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="#">
               Logout
             </Nav.Link>

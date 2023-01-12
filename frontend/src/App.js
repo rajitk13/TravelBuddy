@@ -9,6 +9,13 @@ import Header from "./Components/partials/Header";
 import Profile from "./Components/profile/Profile";
 import Request from "./Components/request/Request";
 import Signup from "./Components/signup/Signup";
+<<<<<<< Updated upstream
+=======
+import AuthContext from "./store/auth-context";
+import "./App.css"
+
+
+>>>>>>> Stashed changes
 
 const App = () => {
   return (
