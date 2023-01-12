@@ -58,10 +58,10 @@ function Request() {
   }
   return (
     <Form className={classes.padding} onSubmit={submitHandler}>
-      <h1>Request</h1>
+      <h1><i class="fa-solid fa-circle-info"></i> Request</h1>
       <Row className="mb-3">
         <Form.Group as={Col} className="mb-3" controlId="">
-          <Form.Label>From</Form.Label>
+          <Form.Label><i class="fa-solid fa-location-arrow"></i> From</Form.Label>
           <Form.Select value={source} onChange={sourceChangeHandler}>
             <option value="MUJ">MUJ</option>
             <option value="Railway Station">RAILWAY STATION</option>
@@ -71,7 +71,7 @@ function Request() {
           <Form.Text className="text-muted">Select starting location</Form.Text>
         </Form.Group>
         <Form.Group as={Col} className="mb-3" controlId="">
-          <Form.Label>To</Form.Label>
+          <Form.Label><i class="fa-solid fa-map-pin"></i> To</Form.Label>
           <Form.Select value={dest} onChange={destChangeHandler}>
             <option value="MUJ">MUJ</option>
             <option value="Railway Station">RAILWAY STATION</option>
@@ -82,7 +82,7 @@ function Request() {
         </Form.Group>
       </Row>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Date&Time</Form.Label>
+        <Form.Label><i class="fa-solid fa-calendar-day"></i> Date & Time</Form.Label>
         <Form.Control
           type="datetime-local"
           ref={dateRef}
@@ -90,14 +90,14 @@ function Request() {
         />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Occupants</Form.Label>
+        <Form.Label> <i class="fa-solid fa-user-group"></i> Occupants</Form.Label>
         <Form.Select value={occupants} onChange={occupantsChangeHandler}>
           <option value={2}>2</option>
           <option value={4}>4</option>
           <option value={6}>6</option>
         </Form.Select>
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="dark" type="submit">
         Submit
       </Button>
     </Form>

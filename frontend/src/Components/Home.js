@@ -4,9 +4,6 @@ import classes from "./Home.module.css";
 import Button from "react-bootstrap/Button";
 import HomeTable from "./HomeTable";
 import HomeCard from "./HomeCard";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Modal from "../modal/ModalComponent";
 import { useState } from "react";
 
@@ -39,31 +36,24 @@ const Home = () => {
       <HomeTable css={classes} />
       <hr />
       <h1 className={classes.padleft}>Optimal Travel Pricing</h1>
-      <div className={classes.padleft} style={{ marginTop: "1rem" }}>
-        <Container fluid>
-          <Row>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-          </Row>
-        </Container>
+      <div className={classes.padding} style={{ marginTop: "1rem" }}>
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+        </div>
       </div>
     </>
   );
