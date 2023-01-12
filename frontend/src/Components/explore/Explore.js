@@ -43,7 +43,7 @@ const Explore = () => {
             }/${dateObj.getFullYear()}`;
             const time = `${dateObj.getHours()}:${dateObj.getMinutes()}`;
             return (
-              <div className="col">
+              <div className="col" key={i}>
                 <ExploreCard
                   _id={request._id}
                   name={request.creator.name}

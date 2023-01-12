@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       <Modal handleClose={handleClose} show={show} />
-      <p className={classes.spacing}>
+      <div className={classes.spacing}>
         <h1 className={classes.padleft} onClick={handleShow}>
           Looking for a Ride Partner?
         </h1>
@@ -29,7 +29,7 @@ const Home = () => {
           We got you covered , a Ride Sharing Solution specifically built for
           MUJ students by MUJ Students!
         </h4>
-      </p>
+      </div>
       <center>
         <Button variant="dark" className={classes.explore}>
           Explore
