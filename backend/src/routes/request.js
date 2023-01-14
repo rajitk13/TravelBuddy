@@ -6,11 +6,20 @@ const mongoose = require("mongoose");
 //get all requests
 requestRouter.get("/requests", authentication, async function (req, res) {
   try {
-    const allRequests = await Request.find().populate("creator", "name");
+    const allRequests = await Request.find().populate("creator", "name").lean();
     //***Check at the frontend that if request.interested.length === requiredStrength then disable the interested button***
     if (allRequests.length !== 0) {
-      res.send(allRequests);
-    } else res.send(JSON.stringify({ empty: true }));
+      allRequests.forEach((request)=>{
+        if(request.creator._id.toString()===req.user._id.toString()){
+          request.disabled=true;
+        } else {
+          request.disabled=false;
+        }
+    });
+
+      res.json(allRequests);
+    } 
+    else res.send(JSON.stringify({ empty: true }));
   } catch (e) {
     res.status(404).send(JSON.stringify({ error: true }));
   }
@@ -70,7 +79,7 @@ requestRouter.post("/requests", authentication, async function (req, res) {
     await req.user.save();
     res.json({ message: "Successfully created Request" });
   } catch (error) {
-    res.status(404).json(error);
+    res.status(404).json({error:"There was an error creating request"});
   }
 });
 

@@ -10,6 +10,7 @@ import Profile from "./Components/profile/Profile";
 import Request from "./Components/request/Request";
 import Signup from "./Components/signup/Signup";
 import AuthContext from "./store/auth-context";
+import Logout from "./Components/Logout";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/profile" element={authCtx.isLoggedIn?<Profile />:<Navigate to="/" replace/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/request" element={authCtx.isLoggedIn?<Request />:<Navigate to="/" replace/>} />
+          <Route path="/logout" element={authCtx.isLoggedIn?<Logout />:<Navigate to="/login" replace/>} />
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
