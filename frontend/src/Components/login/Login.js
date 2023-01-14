@@ -2,6 +2,7 @@ import { useContext, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import classes from "./Login.module.css";
+import Modal from "../../modal/ModalComponent";
 import AuthContext from "../../store/auth-context";
 import { useNavigate } from "react-router-dom";
 
@@ -10,13 +11,23 @@ function Login() {
   const passwordRef = useRef();
   const [error, setError] = useState();
   const authCtx = useContext(AuthContext);
-  const navigation = useNavigate();
+  const [show, setShow] = useState();
+  const navigate = useNavigate();
+  const handleClose = () => {
+    setShow(false);
+    navigate("/explore");
+  };
 
   async function submitHandler(e) {
     e.preventDefault();
     const identification = regRef.current.value;
     const password = passwordRef.current.value;
     try {
+      if (identification.length !== 9 || isNaN(+identification)) {
+        let msg = "Registration number is not valid!";
+        setError(msg);
+        return;
+      }
       const response = await fetch("http://localhost:4000/users/login", {
         method: "POST",
         body: JSON.stringify({ identification, password }),
@@ -26,49 +37,63 @@ function Login() {
       });
       const data = await response.json();
       if (data.error) {
-        setError(data.error);
+        let msg = "Check Registration ID and Password!";
+        setError(msg);
         return;
       }
       console.log(data);
       const expTime = new Date(new Date().getTime() + +data.expiresIn * 1000);
       authCtx.login(data.token, expTime);
-      return navigation("/explore");
+      setShow(true);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
   return (
-    <Form className={classes.padding} onSubmit={submitHandler}>
-      <h1>Login</h1>
-      {error && (
-        <p style={{ color: "red", fontSize: "25px" }}>
-          Incorrect Username or password
-        </p>
-      )}
-      <Form.Group className="mb-3">
-        <Form.Label>Registration Number</Form.Label>
-        <Form.Control ref={regRef} type="integer" />
-        <Form.Text className="text-muted">
-          Enter your MUJ Registration Number
-        </Form.Text>
-      </Form.Group>
+    <>
+      <Modal
+        handleClose={handleClose}
+        show={show}
+        title="Success"
+        body="Your were logged in successfully 😃"
+      />
+      <Form className={classes.padding} onSubmit={submitHandler}>
+        <h1>
+          <i className="fa-solid fa-right-to-bracket"></i> Login
+        </h1>
+        {error && (
+          <h6 style={{ color: "red", fontSize: "25px" }}>
+            <i className="fa-solid fa-triangle-exclamation"></i> {error}
+          </h6>
+        )}
+        <Form.Group className="mb-3">
+          <Form.Label>
+            {" "}
+            <i className="fa-solid fa-hashtag"></i> Registration Number
+          </Form.Label>
+          <Form.Control ref={regRef} type="integer" />
+          <Form.Text className="text-muted">
+            Enter your MUJ Registration Number
+          </Form.Text>
+        </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control ref={passwordRef} type="password" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-      <p>
-        <Form.Text className="text-muted">
-          Not a user ? <a href="/signup">Signup here</a>
-        </Form.Text>
-      </p>
-    </Form>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label><i className="fa-solid fa-key"></i> Password</Form.Label>
+          <Form.Control ref={passwordRef} type="password" />
+        </Form.Group>
+        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group> */}
+        <Button variant="dark" type="submit">
+          Submit
+        </Button>
+        <p>
+          <Form.Text className="text-muted">
+            Not a user ? <a href="/signup">Signup here</a>
+          </Form.Text>
+        </p>
+      </Form>
+    </>
   );
 }
 

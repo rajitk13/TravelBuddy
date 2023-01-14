@@ -13,7 +13,7 @@ function Request() {
   const [source, setSource] = useState("MUJ");
   const [dest, setDest] = useState("MUJ");
   const [occupants, setOccupants] = useState(2);
-  const [dateTime, setDateTime] = useState(new Date("<yyyy-MM-ddThh:mm>"));
+  const [dateTime, setDateTime] = useState(new Date());
   const [error, setError] = useState();
   const [show, setShow] = useState();
   const handleClose = () => {
@@ -38,6 +38,16 @@ function Request() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
+      if (source === dest) {
+        let msg = "Destination and Source Can't be same";
+        setError(msg);
+        return;
+      } else if (dateTime < new Date()) {
+        let msg = "Check Date and Time";
+        setError(msg);
+        return;
+      }
+
       const response = await fetch("http://localhost:4000/requests", {
         method: "POST",
         mode: "cors",
@@ -62,9 +72,14 @@ function Request() {
   return (
     <Form className={classes.padding} onSubmit={submitHandler}>
       <h1>
-        <i class="fa-solid fa-circle-info"></i> Request
+        <i className="fa-solid fa-circle-info"></i> Request
       </h1>
-      {error && <h3 style={{ color: "red" }}>{error}</h3>}
+      {error && (
+        <h6 style={{ color: "red" }}>
+          {" "}
+          <i className="fa-solid fa-triangle-exclamation"></i> {error}
+        </h6>
+      )}
       <Modal
         handleClose={handleClose}
         show={show}
@@ -74,7 +89,7 @@ function Request() {
       <Row className="mb-3">
         <Form.Group as={Col} className="mb-3" controlId="">
           <Form.Label>
-            <i class="fa-solid fa-location-arrow"></i> From
+            <i className="fa-solid fa-location-arrow"></i> From
           </Form.Label>
           <Form.Select value={source} onChange={sourceChangeHandler}>
             <option value="MUJ">MUJ</option>
@@ -86,7 +101,7 @@ function Request() {
         </Form.Group>
         <Form.Group as={Col} className="mb-3" controlId="">
           <Form.Label>
-            <i class="fa-solid fa-map-pin"></i> To
+            <i className="fa-solid fa-map-pin"></i> To
           </Form.Label>
           <Form.Select value={dest} onChange={destChangeHandler}>
             <option value="MUJ">MUJ</option>
@@ -99,18 +114,22 @@ function Request() {
       </Row>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>
-          <i class="fa-solid fa-calendar-day"></i> Date & Time
+          <i className="fa-solid fa-calendar-day"></i> Date & Time
         </Form.Label>
         <Form.Control
           type="datetime-local"
           ref={dateRef}
           onChange={datetimeChangleHandler}
         />
+        <Form.Text className="text-muted">
+          if date and time is selected before current date & time , current time
+          is set
+        </Form.Text>
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>
           {" "}
-          <i class="fa-solid fa-user-group"></i> Occupants
+          <i className="fa-solid fa-user-group"></i> Occupants
         </Form.Label>
         <Form.Select value={occupants} onChange={occupantsChangeHandler}>
           <option value={2}>2</option>
