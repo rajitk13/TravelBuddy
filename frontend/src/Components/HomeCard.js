@@ -1,24 +1,19 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
 
 const HomeCard = () => {
   return (
-    <div>
-      <Card style={{ width: "25rem" , marginTop: "0.5rem" }}>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted">
-            Card Subtitle
-          </Card.Subtitle>
-          <Card.Text>
+    <>
+      <div className="card border-dark mb-3">
+        <div class="card-header">Header</div>
+        <div class="card-body text-dark">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
-          </Card.Text>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
-        </Card.Body>
-      </Card>
-    </div>
+          </p>
+        </div>
+      </div>
+    </>
   );
 };
 

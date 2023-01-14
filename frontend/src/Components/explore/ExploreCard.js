@@ -35,26 +35,26 @@ const ExploreCard = (props) => {
       <div className="card-body">
         <h5 className="card-title">
           {" "}
-          {props.from} <i class="fa-solid fa-arrow-right-long" /> {props.to}
+          {props.from} <i className="fa-solid fa-arrow-right-long" /> {props.to}
         </h5>
-        <p className="card-text">
+        <div className="card-text">
           <p>
             <b>
               {" "}
-              <i class="fa-regular fa-user"></i> {props.name}
+              <i className="fa-regular fa-user"></i> {props.name}
             </b>
           </p>
           <p>
             {" "}
-            <i class="fa-regular fa-calendar"></i> Date: {props.date}{" "}
+            <i className="fa-regular fa-calendar"></i> Date: {props.date}{" "}
           </p>
           <p>
             {" "}
-            <i class="fa-regular fa-clock"></i> Time: {props.time}
+            <i className="fa-regular fa-clock"></i> Time: {props.time}
           </p>
           <p>
             {" "}
-            <i class="fa-solid fa-user-check"></i> Current Occupants: 1/4
+            <i className="fa-solid fa-user-check"></i> Current Occupants: 1/4
           </p>{" "}
           <Button
             variant="dark"
@@ -64,7 +64,7 @@ const ExploreCard = (props) => {
             Interested
           </Button>
           <h6>Request Created at : {props.createdat}</h6>
-        </p>
+        </div>
       </div>
     </div>
   );

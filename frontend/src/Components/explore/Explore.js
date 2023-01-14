@@ -31,7 +31,7 @@ const Explore = () => {
   return (
     <div className={classes.padding}>
       <div className={classes.title}>
-        <h1>Explore </h1>
+        <h1><i class="fa-solid fa-earth-asia"></i> Explore </h1>
         <h3 className={classes.grey}>find your travel buddy</h3>
       </div>
       {!error && (
@@ -43,7 +43,7 @@ const Explore = () => {
             }/${dateObj.getFullYear()}`;
             const time = `${dateObj.getHours()}:${dateObj.getMinutes()}`;
             return (
-              <div className="col">
+              <div className="col" key={i}>
                 <ExploreCard
                   _id={request._id}
                   name={request.creator.name}

@@ -4,9 +4,6 @@ import classes from "./Home.module.css";
 import Button from "react-bootstrap/Button";
 import HomeTable from "./HomeTable";
 import HomeCard from "./HomeCard";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Modal from "../modal/ModalComponent";
 import { useState } from "react";
 
@@ -17,7 +14,7 @@ const Home = () => {
   return (
     <>
       <Modal handleClose={handleClose} show={show} />
-      <p className={classes.spacing}>
+      <div className={classes.spacing}>
         <h1 className={classes.padleft} onClick={handleShow}>
           Looking for a Ride Partner?
         </h1>
@@ -29,7 +26,7 @@ const Home = () => {
           We got you covered , a Ride Sharing Solution specifically built for
           MUJ students by MUJ Students!
         </h4>
-      </p>
+      </div>
       <center>
         <Button variant="dark" className={classes.explore}>
           Explore
@@ -39,31 +36,24 @@ const Home = () => {
       <HomeTable css={classes} />
       <hr />
       <h1 className={classes.padleft}>Optimal Travel Pricing</h1>
-      <div className={classes.padleft} style={{ marginTop: "1rem" }}>
-        <Container fluid>
-          <Row>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-            <Col>
-              <HomeCard />
-            </Col>
-          </Row>
-        </Container>
+      <div className={classes.padding} style={{ marginTop: "1rem" }}>
+        <div className="row row-cols-1 row-cols-md-3 g-4">
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+          <div className="col">
+            <HomeCard />
+          </div>
+        </div>
       </div>
     </>
   );
