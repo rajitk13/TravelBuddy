@@ -2,6 +2,7 @@ import * as React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Explore from "./Components/explore/Explore";
+import MyRequests from "./Components/myrequests/MyRequests";
 import Home from "./Components/Home";
 import Login from "./Components/login/Login";
 // import Footer from "./Components/partials/Footer";
@@ -25,6 +26,11 @@ const App = () => {
           <Route path="/profile" element={authCtx.isLoggedIn?<Profile />:<Navigate to="/" replace/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/request" element={authCtx.isLoggedIn?<Request />:<Navigate to="/" replace/>} />
+<<<<<<< Updated upstream
+=======
+          <Route path="/logout" element={authCtx.isLoggedIn?<Logout />:<Navigate to="/login" replace/>} />
+          <Route path="/myrequests" element={authCtx.isLoggedIn?<MyRequests />:<Navigate to="/" replace/>} />
+>>>>>>> Stashed changes
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}

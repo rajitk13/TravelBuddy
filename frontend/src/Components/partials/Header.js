@@ -19,8 +19,13 @@ function Header() {
           </Nav>
           <Nav>
             {!authCtx.isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
+<<<<<<< Updated upstream
             {authCtx.isLoggedIn && <Nav.Link href="#">My requests</Nav.Link>}
             <Nav.Link href="#">Logout</Nav.Link>
+=======
+            {authCtx.isLoggedIn && <Nav.Link href="/myrequests">My requests</Nav.Link>}
+            <Nav.Link href="/logout">Logout</Nav.Link>
+>>>>>>> Stashed changes
           </Nav>
         </Navbar.Collapse>
       </Container>
