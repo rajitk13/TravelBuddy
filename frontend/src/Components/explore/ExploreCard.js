@@ -54,12 +54,13 @@ const ExploreCard = (props) => {
           </p>
           <p>
             {" "}
-            <i className="fa-solid fa-user-check"></i> Current Occupants: 1/4
+            <i className="fa-solid fa-user-check"></i> {`Current Occupants: ${props.totalInterested}/${props.requiredStrength}`}
           </p>{" "}
           <Button
             variant="dark"
             className={classes.explorebtn}
             onClick={interestedHandler}
+            disabled={props.disabled}
           >
             Interested
           </Button>

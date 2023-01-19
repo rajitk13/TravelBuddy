@@ -11,6 +11,7 @@ import Profile from "./Components/profile/Profile";
 import Request from "./Components/request/Request";
 import Signup from "./Components/signup/Signup";
 import AuthContext from "./store/auth-context";
+import Logout from "./Components/Logout";
 
 
 

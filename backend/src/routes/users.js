@@ -46,9 +46,9 @@ userRouter.get('/users/logout',authentication,async function(req, res){
           return token.token !== req.token; //filtering out all the unused token
         });//Frontend logic has to be added to slash the existing token out of the request
         await req.user.save();
-        res.status(200).send("You have successfully logged out!");
+        res.status(200).json({message:"You have successfully logged out!"});
     } catch (e) {
-        res.status(500).send("Error in logging out!");
+        res.status(404).send({error:"Error in logging out!"});
     }
 });
 //Get your Profile 

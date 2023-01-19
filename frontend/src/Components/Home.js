@@ -1,21 +1,14 @@
 import React from "react";
-
 import classes from "./Home.module.css";
 import Button from "react-bootstrap/Button";
 import HomeTable from "./HomeTable";
 import HomeCard from "./HomeCard";
-import Modal from "../modal/ModalComponent";
-import { useState } from "react";
 
 const Home = () => {
-  const [show, setShow] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   return (
     <>
-      <Modal handleClose={handleClose} show={show} />
       <div className={classes.spacing}>
-        <h1 className={classes.padleft} onClick={handleShow}>
+        <h1 className={classes.padleft}>
           Looking for a Ride Partner?
         </h1>
         <h2 className={classes.left}>MUJ to Railway Station?</h2>

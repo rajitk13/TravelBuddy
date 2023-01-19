@@ -38,10 +38,8 @@ const Explore = () => {
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {requestList.map((request, i) => {
             const dateObj = new Date(request.when);
-            const date = `${dateObj.getDate()}/${
-              dateObj.getMonth() + 1
-            }/${dateObj.getFullYear()}`;
-            const time = `${dateObj.getHours()}:${dateObj.getMinutes()}`;
+            const date = `${dateObj.getDate()}/${dateObj.getMonth()+1}/${dateObj.getFullYear()}`;
+            const time = `${('0' + dateObj.getHours()).slice(-2)}:${('0'+dateObj.getMinutes()).slice(-2)}`;
             return (
               <div className="col" key={i}>
                 <ExploreCard
@@ -52,6 +50,9 @@ const Explore = () => {
                   to={request.to}
                   from={request.from}
                   createdat={request.createdAt}
+                  disabled={request.disabled}
+                  requiredStrength={request.requiredStrength}
+                  totalInterested={request.interested.length}
                 />
               </div>
             );
