@@ -20,6 +20,8 @@ function Header() {
           <Nav>
             {!authCtx.isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
             {authCtx.isLoggedIn && <Nav.Link href="#">My requests</Nav.Link>}
+            <Nav.Link href="#">Logout</Nav.Link>
+            {authCtx.isLoggedIn && <Nav.Link href="/myrequests">My requests</Nav.Link>}
             <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
