@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import ExploreCard from "./ExploreCard";
 import classes from "./Explore.module.css";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
 import AuthContext from "../../store/auth-context";
 
 const Explore = () => {
@@ -31,15 +29,21 @@ const Explore = () => {
   return (
     <div className={classes.padding}>
       <div className={classes.title}>
-        <h1><i class="fa-solid fa-earth-asia"></i> Explore </h1>
+        <h1>
+          <i class="fa-solid fa-earth-asia"></i> Explore{" "}
+        </h1>
         <h3 className={classes.grey}>find your travel buddy</h3>
       </div>
       {!error && (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {requestList.map((request, i) => {
             const dateObj = new Date(request.when);
-            const date = `${dateObj.getDate()}/${dateObj.getMonth()+1}/${dateObj.getFullYear()}`;
-            const time = `${('0' + dateObj.getHours()).slice(-2)}:${('0'+dateObj.getMinutes()).slice(-2)}`;
+            const date = `${dateObj.getDate()}/${
+              dateObj.getMonth() + 1
+            }/${dateObj.getFullYear()}`;
+            const time = `${("0" + dateObj.getHours()).slice(-2)}:${(
+              "0" + dateObj.getMinutes()
+            ).slice(-2)}`;
             return (
               <div className="col" key={i}>
                 <ExploreCard

@@ -1,6 +1,7 @@
 import React from "react";
-
+import moment from 'moment';
 const RequestCard = (props) => {
+  const rel = moment(props.createdat).fromNow();
   return (
     <div className="card">
       <div className="card-body">
@@ -23,11 +24,7 @@ const RequestCard = (props) => {
             {" "}
             <i className="fa-regular fa-clock"></i> Time: {props.time}
           </p>
-  
-  
-  
-
-          <h6>Request Created at : {props.createdat}</h6>
+          <h6>Request made: {rel}</h6>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Button from "react-bootstrap/esm/Button";
 import classes from "./Explore.module.css";
 import AuthContext from "../../store/auth-context";
-
+import moment from 'moment'
 const ExploreCard = (props) => {
   const authCtx = useContext(AuthContext);
   async function interestedHandler(e) {
@@ -64,7 +64,7 @@ const ExploreCard = (props) => {
           >
             Interested
           </Button>
-          <h6>Request Created at : {props.createdat}</h6>
+          <h6>Request made: {moment(props.createdat).fromNow()}</h6>
         </div>
       </div>
     </div>

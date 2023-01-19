@@ -38,7 +38,9 @@ requestRouter.get("/requests/me", authentication, async function (req, res) {
         select: "name -_id",
       },
     ]);
-    res.json({ allRequests });
+    if(allRequests.length!==0){
+      res.json(allRequests);
+    } else res.json({ empty: true })
   } catch (error) {
     console.log(error);
     res.status(404).json({ error: "There was an error fetching documents" });
