@@ -13,6 +13,7 @@ import Signup from "./Components/signup/Signup";
 import AuthContext from "./store/auth-context";
 
 
+
 const App = () => {
   const authCtx = React.useContext(AuthContext);
   return (
@@ -26,11 +27,8 @@ const App = () => {
           <Route path="/profile" element={authCtx.isLoggedIn?<Profile />:<Navigate to="/" replace/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/request" element={authCtx.isLoggedIn?<Request />:<Navigate to="/" replace/>} />
-<<<<<<< Updated upstream
-=======
           <Route path="/logout" element={authCtx.isLoggedIn?<Logout />:<Navigate to="/login" replace/>} />
           <Route path="/myrequests" element={authCtx.isLoggedIn?<MyRequests />:<Navigate to="/" replace/>} />
->>>>>>> Stashed changes
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
