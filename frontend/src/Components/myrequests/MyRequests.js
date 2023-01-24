@@ -7,6 +7,7 @@ import classes from "./myrequests.module.css";
 const MyRequests = () => {
   const [requestList, setRequestList] = useState([]);
   const [error, setError] = useState();
+  const [load,setLoading] = useState(true);
   const authCtx = useContext(AuthContext);
   useEffect(() => {
     async function getRequests() {
@@ -24,11 +25,13 @@ const MyRequests = () => {
       if (data.empty)
         return setError("There are no requests available, try again later");
       setRequestList(data);
+      setLoading(false);
     }
     getRequests();
   }, [authCtx]);
   return (
     <>
+   
       <div className={classes.padding}>
         <div className={classes.title}>
           <h1>
@@ -36,8 +39,9 @@ const MyRequests = () => {
           </h1>
           <h3 className={classes.grey}>check out your request info!</h3>
         </div>
+        {load && <h4>Loading....</h4>}
         {!error && (
-          <div className="row row-cols-1 row-cols-md-12 g-12">
+          <>
             {requestList.map((request, i) => {
               const dateObj = new Date(request.when);
               const date = `${dateObj.getDate()}/${
@@ -47,7 +51,7 @@ const MyRequests = () => {
                 "0" + dateObj.getMinutes()
               ).slice(-2)}`;
               return (
-                <div className="col" key={i}>
+                <div key={i}>
                   <RequestCard
                     _id={request._id}
                     name={request.creator.name}
@@ -59,11 +63,13 @@ const MyRequests = () => {
                     disabled={request.disabled}
                     requiredStrength={request.requiredStrength}
                     totalInterested={request.interested.length}
+                    interested={request.interested}
+                    auth = {authCtx}
                   />
                 </div>
               );
             })}
-          </div>
+          </>
         )}
         {error && <p>{error}</p>}
       </div>

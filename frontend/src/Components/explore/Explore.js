@@ -6,6 +6,7 @@ import AuthContext from "../../store/auth-context";
 const Explore = () => {
   const [requestList, setRequestList] = useState([]);
   const [error, setError] = useState();
+  const [load, setLoading] = useState(true);
   const authCtx = useContext(AuthContext);
   useEffect(() => {
     async function getRequests() {
@@ -15,16 +16,21 @@ const Explore = () => {
         },
       });
       const data = await response.json();
+      setLoading(false);
       if (data.error) {
+       
         return setError(
           "There was some error processing your request try again later"
         );
+
       }
       if (data.empty)
         return setError("There are no requests available, try again later");
       setRequestList(data);
+  
     }
     getRequests();
+
   }, [authCtx]);
   return (
     <div className={classes.padding}>
@@ -34,6 +40,7 @@ const Explore = () => {
         </h1>
         <h3 className={classes.grey}>find your travel buddy</h3>
       </div>
+      {load && <h4>Loading...</h4>}
       {!error && (
         <div className="row row-cols-1 row-cols-md-3 g-4">
           {requestList.map((request, i) => {

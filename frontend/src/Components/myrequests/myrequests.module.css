@@ -10,3 +10,10 @@
 .grey {
   color: grey;
 }
+
+.cardpad{
+  margin-top: 2rem;
+border: 2px solid black;
+border-radius: 1rem;
+padding: 3%;
+}
