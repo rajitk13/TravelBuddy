@@ -7,24 +7,25 @@ import HomeCard from "./HomeCard";
 const Home = () => {
   return (
     <>
-      <div className={classes.spacing}>
+      <div className={`${classes.hero} ${classes.spacing}`}>
         <h1 className={classes.padleft}>
           Looking for a Ride Partner?
         </h1>
         <h2 className={classes.left}>MUJ to Railway Station?</h2>
         <h2 className={classes.left}>MUJ to Jaipur City ?</h2>
         <h2 className={classes.left}>MUJ to Airport?</h2>
-        <hr></hr>
+        <hr class="my-4" ></hr>
         <h4 className={classes.subtitle}>
           We got you covered , a Ride Sharing Solution specifically built for
           MUJ students by MUJ Students!
         </h4>
-      </div>
+    
       <center>
-        <Button variant="dark" className={classes.explore}>
+        <Button variant="dark" className={classes.explore} href="/explore">
           Explore
         </Button>
       </center>
+      </div>
       <hr />
       <HomeTable css={classes} />
       <hr />

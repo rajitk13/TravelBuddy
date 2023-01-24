@@ -1,11 +1,18 @@
 .spacing {
   padding-top: 2rem;
 }
+.hero{
+background-color:#DCDCDC;
+margin: 1.5%;
+border-radius: 1rem;
+padding-bottom: 1rem;
+}
 
 .left {
   text-align: start;
   padding-left: 7%;
-  color: grey;
+  color: slategrey
+ 
 }
 
 .subtitle {
@@ -29,3 +36,6 @@
 .padding {
   margin: 3% 5%;
 }
+
+
+
