@@ -1,14 +1,14 @@
 import React from "react";
 import moment from "moment";
 import classes from "./myrequests.module.css";
+import "./table.css"
 const RequestCard = (props) => {
   const rel = moment(props.createdat).fromNow();
-
 
   return (
     <div className={`${classes.cardpad}`}>
       <div className="row">
-        <div className="col">
+        <div className="col col-12 col-md-6 overflow-auto">
           <h5 className="card-title">
             {" "}
             {props.from} <i className="fa-solid fa-arrow-right-long" />{" "}
@@ -32,7 +32,7 @@ const RequestCard = (props) => {
             <h6>Request made: {rel}</h6>
           </div>
         </div>
-        <div className="col">
+        <div className="col col-12 col-md-6  overflow-auto">
           <h5 className="card-title">Interested</h5>
           <table class="table">
             <thead>
@@ -45,10 +45,7 @@ const RequestCard = (props) => {
               </tr>
             </thead>
             <tbody>
-              
-              {
-                
-              props.interested.map((val, i) => {
+              {props.interested.map((val, i) => {
                 return (
                   <tr>
                     <th scope="row">{i + 1}</th>
@@ -59,7 +56,9 @@ const RequestCard = (props) => {
                   </tr>
                 );
               })}
-              {props.interested.length===0 &&<p>No Interested Indivisdual</p>}
+              {props.interested.length === 0 && (
+                <p>No Interested Indivisdual</p>
+              )}
             </tbody>
           </table>
         </div>
