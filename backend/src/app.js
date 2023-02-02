@@ -18,7 +18,7 @@ app.use(requestRouter);
 app.use(
   cors({
     credentials: true,
-    origin: `https://travel-buddy-9f75.onrender.com:${port}`,
+    origin: `https://travel-buddy-frontend.onrender.com`,
     allowedHeaders: ["sessionId", "Content-Type", "Authorization"],
     exposedHeaders: ["sessionId", "Authorization"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
