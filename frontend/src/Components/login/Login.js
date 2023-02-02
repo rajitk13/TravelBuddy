@@ -28,7 +28,7 @@ function Login() {
         setError(msg);
         return;
       }
-      const response = await fetch("http://localhost:4000/users/login", {
+      const response = await fetch("https://travel-buddy-9f75.onrender.com/users/login", {
         method: "POST",
         body: JSON.stringify({ identification, password }),
         headers: {
