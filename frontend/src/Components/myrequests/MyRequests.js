@@ -12,7 +12,7 @@ const MyRequests = () => {
   const authCtx = useContext(AuthContext);
   useEffect(() => {
     async function getRequests() {
-      const response = await fetch("http://localhost:4000/requests/me", {
+      const response = await fetch("https://travel-buddy-9f75.onrender.com/requests/me", {
         headers: {
           Authorization: `Bearer ${authCtx.token}`,
         },

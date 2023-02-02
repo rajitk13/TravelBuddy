@@ -48,7 +48,7 @@ function Request() {
         return;
       }
 
-      const response = await fetch("http://localhost:4000/requests", {
+      const response = await fetch("https://travel-buddy-9f75.onrender.com/requests", {
         method: "POST",
         mode: "cors",
         headers: {

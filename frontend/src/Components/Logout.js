@@ -14,7 +14,7 @@ function Logout() {
   useEffect(()=>{
     async function logout(){
       try {
-        const response = await fetch("http://localhost:4000//users/logout", {
+        const response = await fetch("https://travel-buddy-9f75.onrender.com//users/logout", {
         method: "GET",
         mode: "cors",
         headers: {

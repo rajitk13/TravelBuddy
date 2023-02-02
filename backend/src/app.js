@@ -8,19 +8,19 @@ const cors = require("cors");
 const port = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
-app.options('*', cors())
+app.options("*", cors());
 
-app.get("/",(req,res)=>{
-  res.send("Server Up and Working!")
+app.get("/", (req, res) => {
+  res.send("Server Up and Working!");
 });
 app.use(userRouter);
 app.use(requestRouter);
 app.use(
   cors({
     credentials: true,
-    origin: "http://localhost:3000",
-    allowedHeaders: ["sessionId", "Content-Type","Authorization"],
-    exposedHeaders: ["sessionId","Authorization"],
+    origin: `https://travel-buddy-9f75.onrender.com:${port}`,
+    allowedHeaders: ["sessionId", "Content-Type", "Authorization"],
+    exposedHeaders: ["sessionId", "Authorization"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
   })
