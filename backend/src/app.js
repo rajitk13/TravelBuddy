@@ -9,6 +9,10 @@ const port = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
 app.options('*', cors())
+
+app.get("/",(req,res)=>{
+  res.send("Server Up and Working!")
+});
 app.use(userRouter);
 app.use(requestRouter);
 app.use(
