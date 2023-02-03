@@ -30,11 +30,9 @@ function Login() {
       }
       const response = await fetch("https://travel-buddy-9f75.onrender.com/users/login", {
         method: "POST",
-        mode:'cors',
         body: JSON.stringify({ identification, password }),
         headers: {
-          "Content-Type": "application/json",
-          "Origin":"https://travel-buddy-frontend.onrender.com/"
+          "Content-Type": "application/json"
         },
       });
       const data = await response.json();
