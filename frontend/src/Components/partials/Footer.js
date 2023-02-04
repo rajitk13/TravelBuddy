@@ -3,9 +3,11 @@ import classes from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className={classes.footer}>
-      <h6 className={classes.text}>Created with Love Team Travel Buddy 🤍</h6>
-    </div>
+    <footer className={classes.footercss}>
+      <div className="container">
+        <span>Made with Love , Team Travel Buddy ♥</span>
+      </div>
+    </footer>
   );
 };
 

@@ -4,33 +4,33 @@ import Table from "react-bootstrap/Table";
 const HomeTable = (props) => {
   return (
     <div className={props.css.tablestyle}>
-        <h1>Travel Providers</h1>
+      <h1>Travel Providers</h1>
       <Table striped size="sm">
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>Travel Agency</th>
+
+            <th>Contact</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>Ramesh</td>
+            <td>+91 9928569011</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td>Dev Pari</td>
+            <td>+91 9928700018</td>
+
           </tr>
           <tr>
             <td>3</td>
-            <td colSpan={2}>Larry the Bird</td>
-            <td>@twitter</td>
+            <td>Gyaanchand Cab</td>
+            <td>+91 7976738016</td>
+        
           </tr>
         </tbody>
       </Table>

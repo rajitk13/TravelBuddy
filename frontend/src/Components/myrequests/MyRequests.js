@@ -4,19 +4,21 @@ import AuthContext from "../../store/auth-context";
 import RequestCard from "./RequestCard";
 import classes from "./myrequests.module.css";
 
-
 const MyRequests = () => {
   const [requestList, setRequestList] = useState([]);
   const [error, setError] = useState();
-  const [load,setLoading] = useState(true);
+  const [load, setLoading] = useState(true);
   const authCtx = useContext(AuthContext);
   useEffect(() => {
     async function getRequests() {
-      const response = await fetch("https://travel-buddy-9f75.onrender.com/requests/me", {
-        headers: {
-          Authorization: `Bearer ${authCtx.token}`,
-        },
-      });
+      const response = await fetch(
+        "https://travel-buddy-9f75.onrender.com/requests/me",
+        {
+          headers: {
+            Authorization: `Bearer ${authCtx.token}`,
+          },
+        }
+      );
       const data = await response.json();
       if (data.error) {
         return setError(
@@ -32,7 +34,6 @@ const MyRequests = () => {
   }, [authCtx]);
   return (
     <>
-   
       <div className={classes.padding}>
         <div className={classes.title}>
           <h1>
@@ -40,9 +41,16 @@ const MyRequests = () => {
           </h1>
           <h3 className={classes.grey}>check out your request info!</h3>
         </div>
-        {load && <h4>Loading....</h4>}
+        {load && (
+          <h4>
+            Loading...
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+          </h4>
+        )}
         {!error && (
-          <>
+          <div className={classes.extrapad}>
             {requestList.map((request, i) => {
               const dateObj = new Date(request.when);
               const date = `${dateObj.getDate()}/${
@@ -65,12 +73,12 @@ const MyRequests = () => {
                     requiredStrength={request.requiredStrength}
                     totalInterested={request.interested.length}
                     interested={request.interested}
-                    auth = {authCtx}
+                    auth={authCtx}
                   />
                 </div>
               );
             })}
-          </>
+          </div>
         )}
         {error && <p>{error}</p>}
       </div>
