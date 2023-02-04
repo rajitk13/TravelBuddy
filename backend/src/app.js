@@ -9,7 +9,11 @@ const port = process.env.PORT || 4000;
 const app = express();
 app.use(express.json());
 app.options("*", cors());
-
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', 'https://travel-buddy-frontend.onrender.com');
+  res.setHeader('Access-Control-Allow-Credentials','true');
+  next();
+})
 app.get("/", (req, res) => {
   res.send("Server Up and Working!");
 });
@@ -18,7 +22,9 @@ app.use(requestRouter);
 app.use(
   cors({
     credentials: true,
-    origin: `https://travel-buddy-frontend.onrender.com`,
+    origin:  function(origin, callback){
+      return callback(null, true);
+    },
     allowedHeaders: ["sessionId", "Content-Type", "Authorization"],
     exposedHeaders: ["sessionId", "Authorization"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",

@@ -16,8 +16,8 @@ userRouter.post('/users/login',async function(req,res){
         const foundUser = await User.findByCredentials(identification,password);
         const token = await foundUser.generateToken();
         const reducedDetails = Object.fromEntries(requiredFields.map((field)=>[field,foundUser[field]]));
-        res.setHeader('Access-Control-Allow-Origin','https://travel-buddy-frontend.onrender.com');
-        res.setHeader('Access-Control-Allow-Credentials','true');
+        // res.setHeader('Access-Control-Allow-Origin','https://travel-buddy-frontend.onrender.com');
+        // res.setHeader('Access-Control-Allow-Credentials','true');
         res.send({user:reducedDetails,token,expiresIn:parseInt(process.env.JWT_EXPIRES_IN)});
     } catch (error) {
         res.send({error:"No such User Found!"});
