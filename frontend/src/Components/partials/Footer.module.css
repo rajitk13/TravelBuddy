@@ -1,9 +1,8 @@
-.footer {
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    background-color: olive;
-    color: white;
-    text-align: center;
-    margin-top: 5%;
+.footercss {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: grey;
+  color: white;
 }

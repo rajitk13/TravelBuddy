@@ -10,27 +10,26 @@ const Explore = () => {
   const authCtx = useContext(AuthContext);
   useEffect(() => {
     async function getRequests() {
-      const response = await fetch("https://travel-buddy-9f75.onrender.com/requests", {
-        headers: {
-          Authorization: `Bearer ${authCtx.token}`,
-        },
-      });
+      const response = await fetch(
+        "https://travel-buddy-9f75.onrender.com/requests",
+        {
+          headers: {
+            Authorization: `Bearer ${authCtx.token}`,
+          },
+        }
+      );
       const data = await response.json();
       setLoading(false);
       if (data.error) {
-       
         return setError(
           "There was some error processing your request try again later"
         );
-
       }
       if (data.empty)
         return setError("There are no requests available, try again later");
       setRequestList(data);
-  
     }
     getRequests();
-
   }, [authCtx]);
   return (
     <div className={classes.padding}>
@@ -40,9 +39,21 @@ const Explore = () => {
         </h1>
         <h3 className={classes.grey}>find your travel buddy</h3>
       </div>
-      {load && <h4>Loading...</h4>}
+      {load && (
+        <>
+          <h4>
+            Loading...
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
+          </h4>
+        </>
+      )}
       {!error && (
-        <div className="row row-cols-1 row-cols-md-3 g-4">
+        <div
+          className="row row-cols-1 row-cols-md-3 g-4"
+          style={{ paddingBottom: "10%" }}
+        >
           {requestList.map((request, i) => {
             const dateObj = new Date(request.when);
             const date = `${dateObj.getDate()}/${

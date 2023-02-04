@@ -17,8 +17,10 @@ function Login() {
     setShow(false);
     navigate("/explore");
   };
+  const [load, setLoading] = useState(false);
 
   async function submitHandler(e) {
+    setLoading(true);
     e.preventDefault();
     const identification = regRef.current.value;
     const password = passwordRef.current.value;
@@ -28,13 +30,16 @@ function Login() {
         setError(msg);
         return;
       }
-      const response = await fetch("https://travel-buddy-9f75.onrender.com/users/login", {
-        method: "POST",
-        body: JSON.stringify({ identification, password }),
-        headers: {
-          "Content-Type": "application/json"
-        },
-      });
+      const response = await fetch(
+        "https://travel-buddy-9f75.onrender.com/users/login",
+        {
+          method: "POST",
+          body: JSON.stringify({ identification, password }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const data = await response.json();
       if (data.error) {
         let msg = "Check Registration ID and Password!";
@@ -44,6 +49,7 @@ function Login() {
       console.log(data);
       const expTime = new Date(new Date().getTime() + +data.expiresIn * 1000);
       authCtx.login(data.token, expTime);
+      setLoading(false);
       setShow(true);
     } catch (error) {
       console.error(error);
@@ -78,13 +84,18 @@ function Login() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label><i className="fa-solid fa-key"></i> Password</Form.Label>
+          <Form.Label>
+            <i className="fa-solid fa-key"></i> Password
+          </Form.Label>
           <Form.Control ref={passwordRef} type="password" />
         </Form.Group>
         {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group> */}
         <Button variant="dark" type="submit">
+          {load && (
+            <div class="spinner-border spinner-border-sm" role="status" />
+          )}{" "}
           Submit
         </Button>
         <p>

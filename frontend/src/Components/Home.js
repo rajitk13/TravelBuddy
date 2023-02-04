@@ -34,20 +34,20 @@ const Home = () => {
       <div className={classes.padding} style={{ marginTop: "1rem" }}>
         <div className="row row-cols-1 row-cols-md-3 g-4">
           <div className="col">
-            <HomeCard />
+            <HomeCard cartype={"Dzire, Etios"} railway={"Rs 850/-"} airport={"Rs 850/-"} max={2}/>
           </div>
           <div className="col">
-            <HomeCard />
+            <HomeCard cartype={"Tavera"} railway={"Rs 1300/-"} airport={"Rs 1300/-"} max={6}/>
           </div>
           <div className="col">
-            <HomeCard />
+            <HomeCard  cartype={"Tempo Traveller"} railway={"Rs 2800/-"} airport={"Rs 2800/-"} max={12}/>
           </div>
           <div className="col">
-            <HomeCard />
+            <HomeCard  cartype={"Innova"} railway={"Rs 1500"} airport={"Rs 1500/-"} max={5}/>
           </div>
-          <div className="col">
+          {/* <div className="col">
             <HomeCard />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
