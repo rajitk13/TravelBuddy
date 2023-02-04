@@ -41,7 +41,6 @@ const RequestCard = (props) => {
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
                 <th scope="col">Phone</th>
-                <th scope="col">Confirm</th>
               </tr>
             </thead>
             <tbody>
@@ -52,7 +51,6 @@ const RequestCard = (props) => {
                     <td>{val.name}</td>
                     <td>{val.email}</td>
                     <td>{val.phone}</td>
-                    <td>A button here</td>
                   </tr>
                 );
               })}

@@ -6,3 +6,8 @@
   background-color: grey;
   color: white;
 }
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
