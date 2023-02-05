@@ -10,7 +10,7 @@ const ExploreCard = (props) => {
     const _id = props._id;
     try {
       const response = await fetch(
-        `http://localhost:4000/requests/${_id}/interested`,
+        `https://travel-buddy-9f75.onrender.com/requests/${_id}/interested`,
         {
           method: "POST",
           headers: {

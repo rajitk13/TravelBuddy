@@ -16,6 +16,7 @@ function Request() {
   const [dateTime, setDateTime] = useState(new Date());
   const [error, setError] = useState();
   const [show, setShow] = useState();
+  const [load, setLoading] = useState(false);
   const handleClose = () => {
     setShow(false);
     navigate("/explore");
@@ -36,32 +37,38 @@ function Request() {
     setDateTime(new Date(dateRef.current.value));
   }
   async function submitHandler(e) {
+    setLoading(true);
     e.preventDefault();
     try {
       if (source === dest) {
         let msg = "Destination and Source Can't be same";
         setError(msg);
+        setLoading(false);
         return;
       } else if (dateTime < new Date()) {
         let msg = "Check Date and Time";
+        setLoading(false);
         setError(msg);
         return;
       }
 
-      const response = await fetch("https://travel-buddy-9f75.onrender.com/requests", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${authCtx.token}`,
-        },
-        body: JSON.stringify({
-          from: source,
-          to: dest,
-          when: dateTime,
-          requiredStrength: occupants,
-        }),
-      });
+      const response = await fetch(
+        "https://travel-buddy-9f75.onrender.com/requests",
+        {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authCtx.token}`,
+          },
+          body: JSON.stringify({
+            from: source,
+            to: dest,
+            when: dateTime,
+            requiredStrength: occupants,
+          }),
+        }
+      );
       const data = await response.json();
       if (data.error) {
         return setError(data.error);
@@ -138,6 +145,7 @@ function Request() {
         </Form.Select>
       </Form.Group>
       <Button variant="dark" type="submit">
+        {load && <div class="spinner-border spinner-border-sm" role="status" />}{" "}
         Submit
       </Button>
     </Form>
