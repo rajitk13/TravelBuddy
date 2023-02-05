@@ -28,6 +28,7 @@ function Login() {
       if (identification.length !== 9 || isNaN(+identification)) {
         let msg = "Registration number is not valid!";
         setError(msg);
+        setLoading(false);
         return;
       }
       const response = await fetch(
@@ -44,6 +45,7 @@ function Login() {
       if (data.error) {
         let msg = "Check Registration ID and Password!";
         setError(msg);
+        setLoading(false);
         return;
       }
       console.log(data);

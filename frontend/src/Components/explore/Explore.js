@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ExploreCard from "./ExploreCard";
 import classes from "./Explore.module.css";
 import AuthContext from "../../store/auth-context";
+import { ThreeDots } from "react-loader-spinner";
 
 const Explore = () => {
   const [requestList, setRequestList] = useState([]);
@@ -41,12 +42,16 @@ const Explore = () => {
       </div>
       {load && (
         <>
-          <h4>
-            Loading...
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-          </h4>
+         <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#212529"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
         </>
       )}
       {!error && (

@@ -1,5 +1,11 @@
 .padding {
-    padding: 3% 13%;
-    height: 83vh;
-  }
-  
+  padding-left: 13%;
+  padding-right: 13%;
+  padding-top: 3%;
+
+ 
+}
+
+.content{
+  padding-bottom: 10%;
+}

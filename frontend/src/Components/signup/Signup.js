@@ -33,24 +33,30 @@ function Signup() {
 
     if (cnfPassword !== password) {
       setError("Password and confirm password does not match 🙄");
+      setLoading(false);
       return;
     }
     try {
-      const response = await fetch("http://localhost:4000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          password,
-          email,
-          identification: reg,
-          phone,
-        }),
-      });
+      const response = await fetch(
+        "https://travel-buddy-9f75.onrender.com/users",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            password,
+            email,
+            identification: reg,
+            phone,
+          }),
+        }
+      );
       const data = await response.json();
       if (data.error) {
+        setError("Check input fields 🥲");
+        setLoading(false);
         return console.log("There was error fetching database");
       }
       setLoading(false);
@@ -61,7 +67,7 @@ function Signup() {
     }
   }
   return (
-    <>
+    <div className={classes.content}>
       <Modal
         handleClose={handleClose}
         show={show}
@@ -69,33 +75,38 @@ function Signup() {
         body="Your Account was successfully created 😃"
       />
       <Form className={classes.padding} onSubmit={submitHandler}>
-        <h1>Signup</h1>
+        <h1><i className="fa-solid fa-right-to-bracket"></i> Signup</h1>
+        {error && (
+          <h6 style={{ color: "red", fontSize: "25px" }}>
+            <i className="fa-solid fa-triangle-exclamation"></i> {error}
+          </h6>
+        )}
         <Form.Group className="mb-3">
-          <Form.Label>Registration Number</Form.Label>
+          <Form.Label><i className="fa-solid fa-hashtag"></i> Registration Number</Form.Label>
           <Form.Control type="integer" ref={regRef} />
           <Form.Text className="text-muted">
             Enter your MUJ Registration Number
           </Form.Text>
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
+          <Form.Label><i class="fa-solid fa-person-rifle"></i> Name</Form.Label>
           <Form.Control type="integer" ref={nameRef} />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
+          <Form.Label><i class="fa-solid fa-envelope"></i> Email</Form.Label>
           <Form.Control type="integer" ref={emailRef} />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Mobile</Form.Label>
+          <Form.Label><i className="fa-solid fa-mobile"></i> Mobile</Form.Label>
           <Form.Control type="integer" ref={phoneRef} />
         </Form.Group>
 
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
+          <Form.Label> <i className="fa-solid fa-key"></i> Password</Form.Label>
           <Form.Control type="password" ref={passwordRef} />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label><i class="fa-solid fa-lock"></i> Confirm Password</Form.Label>
           <Form.Control type="password" ref={cnfPasswordRef} />
         </Form.Group>
         {/* <Form.Group className="mb-3">
@@ -112,9 +123,8 @@ function Signup() {
             Already a user ? <a href="/login">Login here</a>
           </Form.Text>
         </p>
-        {error && <p style={{ color: "red", fontSize: "20px" }}>{error}</p>}
       </Form>
-    </>
+    </div>
   );
 }
 

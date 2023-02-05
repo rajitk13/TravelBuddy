@@ -3,6 +3,7 @@ import { useContext } from "react";
 import AuthContext from "../../store/auth-context";
 import RequestCard from "./RequestCard";
 import classes from "./myrequests.module.css";
+import { ThreeDots } from "react-loader-spinner";
 
 const MyRequests = () => {
   const [requestList, setRequestList] = useState([]);
@@ -25,8 +26,11 @@ const MyRequests = () => {
           "There was some error processing your request try again later"
         );
       }
-      if (data.empty)
+      if (data.empty) {
+        setLoading(false);
         return setError("There are no requests available, try again later");
+      }
+
       setRequestList(data);
       setLoading(false);
     }
@@ -41,13 +45,22 @@ const MyRequests = () => {
           </h1>
           <h3 className={classes.grey}>check out your request info!</h3>
         </div>
+        {error && (
+          <h6 style={{ color: "red", fontSize: "25px" }}>
+            <i className="fa-solid fa-triangle-exclamation"></i> {error}
+          </h6>
+        )}
         {load && (
-          <h4>
-            Loading...
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-            <div class="spinner-grow text-dark spinner-grow-sm" role="status" />
-          </h4>
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#212529"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
         )}
         {!error && (
           <div className={classes.extrapad}>
@@ -80,7 +93,7 @@ const MyRequests = () => {
             })}
           </div>
         )}
-        {error && <p>{error}</p>}
+      
       </div>
     </>
   );
