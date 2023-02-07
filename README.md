@@ -18,7 +18,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][contributors-url-two]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -27,11 +27,12 @@
 
 
 
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/rajitk13/TravelBuddy">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+<!-- here goes image -->
   </a>
 
 <h3 align="center">TravelBuddy</h3>
@@ -82,25 +83,23 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
+This is a peer to peer ride sharing project , specifically for a college community to facilitate easy and cheaper commute everyday!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+![Screenshot 2023-02-07 at 11 23 34 PM](https://user-images.githubusercontent.com/73546886/217326708-06c552bb-c373-4cd6-b56b-6783db27cd08.png)
 
 
 
 ### Built With
 
-* [![Next][Next.js]][Next-url]
+
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 * [![JQuery][JQuery.com]][JQuery-url]
+* ![NodeJS]
+* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+* ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+* ![MONGO](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -131,9 +130,10 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+4. Enter your KEY .env in `./backend/src/`
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   SECRET_KEY="MILINDISHANDSOME"
+   JWT_EXPIRES_IN="604800s"
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -143,9 +143,6 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -154,10 +151,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Backend basic routes 
+- [ ] React intialisation
+- [ ] Authentication
+- [ ] Creating Requests
+- [ ] Displaying all Requests in Explore page
 
 See the [open issues](https://github.com/rajitk13/TravelBuddy/issues) for a full list of proposed features (and known issues).
 
@@ -166,6 +164,7 @@ See the [open issues](https://github.com/rajitk13/TravelBuddy/issues) for a full
 
 
 <!-- CONTRIBUTING -->
+<!--
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -179,23 +178,10 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- CONTACT -->
 ## Contact
-
-<!-- Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com -->
 
 Project Link: [https://github.com/rajitk13/TravelBuddy](https://github.com/rajitk13/TravelBuddy)
 
@@ -206,9 +192,8 @@ Project Link: [https://github.com/rajitk13/TravelBuddy](https://github.com/rajit
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+*  Deadpool 1000 (https://github.com/Deadpool-1000)
+*  rajitk13 (https://github.com/rajitk13)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -217,7 +202,8 @@ Project Link: [https://github.com/rajitk13/TravelBuddy](https://github.com/rajit
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/rajitk13/TravelBuddy.svg?style=for-the-badge
-[contributors-url]: https://github.com/rajitk13/TravelBuddy/graphs/contributors
+[contributors-url-one]: https://github.com/rajitk13/TravelBuddy/graphs/contributors
+[contributors-url-two]:https://github.com/Deadpool-1000
 [forks-shield]: https://img.shields.io/github/forks/rajitk13/TravelBuddy.svg?style=for-the-badge
 [forks-url]: https://github.com/rajitk13/TravelBuddy/network/members
 [stars-shield]: https://img.shields.io/github/stars/rajitk13/TravelBuddy.svg?style=for-the-badge
@@ -245,3 +231,4 @@ Project Link: [https://github.com/rajitk13/TravelBuddy](https://github.com/rajit
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[NodeJS]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
