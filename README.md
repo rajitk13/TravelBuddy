@@ -85,9 +85,9 @@
 ## About The Project
 This is a peer to peer ride sharing project , specifically for a college community to facilitate easy and cheaper commute everyday!
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-![Screenshot 2023-02-07 at 11 23 34 PM](https://user-images.githubusercontent.com/73546886/217326708-06c552bb-c373-4cd6-b56b-6783db27cd08.png)
 
+![Screenshot 2023-02-07 at 11 23 34 PM](https://user-images.githubusercontent.com/73546886/217326708-06c552bb-c373-4cd6-b56b-6783db27cd08.png)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ### Built With
