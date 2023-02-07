@@ -43,7 +43,7 @@
     <a href="https://github.com/rajitk13/TravelBuddy"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/rajitk13/TravelBuddy">View Demo</a>
+    <a href="https://travel-buddy-frontend.onrender.com" target="_blank">View Demo</a>
     ·
     <a href="https://github.com/rajitk13/TravelBuddy/issues">Report Bug</a>
     ·
@@ -100,6 +100,7 @@ This is a peer to peer ride sharing project , specifically for a college communi
 * ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 * ![MONGO](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+* ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
